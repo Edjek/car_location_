@@ -1,0 +1,44 @@
+input[type='date'] {
+    padding: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 1.7em;
+    margin: 20px 0;
+}
+
+.logo {
+    width: 75px;
+}
+
+.img-fluid {
+    display: grid;
+    place-content: center;
+    margin-top: 15px;
+    width: 200px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.img-hp {
+    width: 150px;
+}
+
+.icon {
+    width: 60px;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+input[type='submit']:hover {
+    box-shadow: 3px 3px 16px rgba(0, 0, 0, 0.2);
+}
+.img-thumb {
+    width: 150px;
+}

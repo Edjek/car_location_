@@ -1,0 +1,76 @@
+Créer une base de donnee car_location
+Se positionner dessus
+
+Créer une table user
+    id entier non signé clé primaire auto incrementé
+    email chaîne de caractère 255 unique
+    mdp chaîne de caractère 255
+    username chaîne de caractère 255
+    admin booleen
+
+// Afficher la structrure de sa table
+
+Créer une table car
+    id entier non signé clé primaire auto incrementé
+    name chaîne de caractère 255
+    description text
+    image chaîne de caractère 255
+    price float
+
+
+Créer une table contact
+    id entier non signé clé primaire auto incrementé
+    email chaîne de caractère 255
+    content text
+    date datetime
+
+
+Créer une table reservation
+    id entier non signé clé primaire auto incrementé
+    date_start date
+    date_end date
+    total_price float
+    id_user entier non signé clé secondaire user (id)
+    id_car entier non signé clé secondaire car (id)
+
+
+    ------------------------------------------------------------------------------------
+
+
+    CREATE TABLE user (
+        id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+        email VARCHAR(255) not null unique,
+        mdp VARCHAR(255),
+        username VARCHAR(255),
+        admin BOOLEAN
+    );
+
+    CREATE TABLE car (
+        id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+        name VARCHAR(255),
+        description text,
+        image VARCHAR(255),
+        price FLOAT
+    );
+
+    ALTER TABLE car modify price decimal(8, 2);
+
+    CREATE TABLE contact (
+        id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+        email VARCHAR(255),
+        content TEXT,
+        date DATETIME
+    );
+
+    CREATE TABLE reservation (
+        id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+        date_start DATE,
+        date_end DATE,
+        total_price FLOAT,
+        id_user INT UNSIGNED,
+        id_car INT UNSIGNED,
+        CONSTRAINT fk_id_user FOREIGN KEY (id_user) REFERENCES user (id)
+    );
+
+    ALTER TABLE reservation MODIFY total_price decimal(8,2);
+    ALTER TABLE reservation ADD CONSTRAINT fk_id_car FOREIGN KEY (id_car) REFERENCES car (id);
